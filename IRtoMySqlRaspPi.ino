@@ -47,6 +47,9 @@ void loop() {
 
   if (millis() - lastTime > interval) {
     lastTime = millis();
+   
+    Serial.print(String(mcont1B) + " mm. (" + String(mcont1A) + ")\t")
+    Serial.println (String(mcont2B) + " mm. (" + String(mcont2A) + ")"); 
 
     //send data to PHP/MySQL
     httpRequest();
@@ -77,8 +80,8 @@ void readIRsensors() {
   mcont2B = long(distance2*10);
   
   // Debug waarden in Serial Monitor
-  Serial.print(String(mcont1B) + " mm.\t" + String(mcont2B) + " mm.\t\t"); 
-  Serial.println(String(mcont1A) + "\t" + String(mcont2A) + " ");
+  // Serial.print(String(mcont1B) + " mm.\t" + String(mcont2B) + " mm.\t\t"); 
+  // Serial.println(String(mcont1A) + "\t" + String(mcont2A) + " ");
   
   delay(1000);
 
