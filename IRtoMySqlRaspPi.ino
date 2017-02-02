@@ -104,6 +104,18 @@ void httpRequest() {
     client.println("User-Agent: arduino-ethernet");
     client.println("Connection: close");
     client.println();
+   
+    // Debug waarden in Serial Monitor
+    Serial.print("GET /salt.php?mcont1A=");
+    Serial.print(String(mcont1A));
+    Serial.print("&mcont1B=");
+    Serial.print(String(mcont1B));
+    Serial.print("&mcont2A=");
+    Serial.print(String(mcont2A));
+    Serial.print("&mcont2B=");
+    Serial.print(String(mcont2B));
+    Serial.println(" HTTP/1.1");   
+   
     //Request complete; empty recieve buffer
     while (client.available()) { //data available
       char c = client.read(); //gets byte from ethernet buffer
