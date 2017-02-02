@@ -4,5 +4,6 @@ I've a Aquacell (https://www.aquacell-waterontharder.nl/) installed in a cabinet
 
 I use two IR Sharp GP2Y0A21YK sensors (http://bit.ly/2k2vzdY) above the salt-containers. They are connected to an Arduino Uno with an ethernetshield. The measured data is send (GET) to an php file and put it into a mySql database.
 
-IR-to-MySql-RaspPi/Untitled Sketch_bb.png
+https://github.com/florushoogendoorn/IR-to-MySql-RaspPi/Untitled Sketch_bb.png
+
 
