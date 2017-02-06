@@ -27,6 +27,7 @@ long mcont2B = 0; //IR meter 2 milimeter value
 
 long lastTime = 0;        // will store last time
 long interval = 60000;    // interval (milliseconds)
+unsigned int AvgNumber = 15;
 
 void setup() {
 
@@ -66,17 +67,35 @@ void loop() {
 } //Einde loop
 
 void readIRsensors() {
+ 
+  unsigned int x=0;
+  float ResultsA = 0.0;
+  float ResultsB = 0.0;
+  float AvgResultsA = 0.0;
+  float AvgResultsB = 0.0;
   
   long volts1 = analogRead(A0); 
-  float distance1 = pow(3027.4 / volts1, 1.2134);
-  
   mcont1A = volts1;
-  mcont1B = long(distance1*10);
-
-  long volts2 = analogRead(A1); 
-  float distance2 = pow(3027.4 / volts2, 1.2134);
   
+  long volts2 = analogRead(A1); 
   mcont2A = volts2;
+
+  for (int x = 0; x < AvgNumber; x++){
+   
+   ResultsA = ResultsA + mcont1A;
+   ResultsB = ResultsB + mcont2A;
+   
+   delay(1000);
+   
+  }
+ 
+  AvgResultsA = ResultsA / AvgNumber;
+  AvgResultsB = ResultsB / AvgNumber;
+ 
+  float distance1 = pow(3027.4 / AvgResultsA, 1.2134);
+  float distance2 = pow(3027.4 / AvgResultsB, 1.2134);
+ 
+  mcont1B = long(distance1*10);
   mcont2B = long(distance2*10);
   
   // Debug waarden in Serial Monitor
