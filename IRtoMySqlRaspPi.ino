@@ -26,7 +26,7 @@ long mcont2A = 0; //IR meter 2 raw value
 long mcont2B = 0; //IR meter 2 milimeter value
 
 long lastTime = 0;        // will store last time
-long interval = 60000;    // interval (milliseconds)
+long interval = 60000;    // interval (milliseconds) 60000 in test modus (every minute), 300000 (every 5 minutes) in live.
 unsigned int AvgNumber = 15;
 
 void setup() {
